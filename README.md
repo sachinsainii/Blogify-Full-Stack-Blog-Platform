@@ -30,17 +30,22 @@ The application includes authentication, comments, categories, tagging, and admi
 ---
 
 📂 Project Structure
+
 blogify/
+
 │── api/              
 │── blog/
+
 │── featured/              
 │── media/             
 │── mysite/              
 │── polls/
+
 │── templates/         
 │── static/            
 │── db.sqlite3         
 │── manage.py
+
 │── .gitignore       
 │── requirements.txt
 
@@ -49,7 +54,7 @@ blogify/
 ⚙️ Installation & Setup
  1. Clone the repository
     
-    git clone https://github.com/sachinsainii/blogify-Full Stack Blog Platform.git
+    git clone https://github.com/sachinsainii/blogify-Full-Stack-Blog-Platform.git
     
     cd blogify
 
@@ -79,8 +84,11 @@ Example:
 
 ![Home Page]
 <img width="1893" height="819" alt="image" src="https://github.com/user-attachments/assets/129b8105-dbe0-4ca0-bc03-c5bc15812a6d" />
+
 <img width="1890" height="815" alt="image" src="https://github.com/user-attachments/assets/02c7e3da-7c2b-44c2-bb88-3469132dd1d7" />
+
 <img width="1885" height="829" alt="image" src="https://github.com/user-attachments/assets/2aa11a64-59a6-43d6-8a3e-29bd9f7f2d5a" />
+
 <img width="1899" height="838" alt="image" src="https://github.com/user-attachments/assets/2bcd2fb2-0573-46c8-b9ab-caac5e5416a3" />
 
 ![Login Page]
