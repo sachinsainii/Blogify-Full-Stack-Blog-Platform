@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+  <section id="about" class="py-5 bg-light">
+  <div class="container">
+    <div class="row align-items-center">
+       <div class="col-md-7"
+
+
+<legend><legend><p> {{question.question_text }}</p></legend></legend>
+<ul>
+   
+    {% for choice in question.choice_set.all %}
+    <li>{{choice.choice_text }} -- {{choice.votes}} vote's</li>
+    {% endfor %}
+</ul>
+<legend><a class="btn btn-success" style= "text-decoration:none; color:black" href="{% url 'polls:detail' question.id %}">vote again?</a></legend>
+    </div>
+  </div>
+</div>
+  </section>
+{% endblock %}

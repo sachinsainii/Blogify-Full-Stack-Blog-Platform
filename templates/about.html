@@ -1,0 +1,36 @@
+{% extends 'base.html'%}
+{% block content %}
+{% load static%}
+<section id="about" class="py-5 bg-light">
+  <div class="container">
+    <div class="row align-items-center">
+      
+      <!-- Left: Image -->
+      <!-- <div class="col-md-5 mb-4 mb-md-0">
+        <img src="{% static 'images/about.png' %}" alt="About Study Blog" class="img-fluid rounded shadow">
+      </div> -->
+
+      <!-- Right: Content -->
+      <div class="col-md-7">
+        <h2 style="color:#ffd700;">About Study Blog</h2>
+        <p>
+          Study Blog is a platform where learners, developers, and enthusiasts come together to 
+          share knowledge, tutorials, and insights on programming, web development, and technology.  
+        </p>
+        <p>
+          Whether you’re just starting your coding journey or want to dive deeper into advanced topics, 
+          our community-driven blog provides articles, guides, and resources to help you grow step by step.
+        </p>
+        <ul class="list-unstyled">
+          <li>✅ Easy-to-follow coding tutorials</li>
+          <li>✅ Real-world project guides</li>
+          <li>✅ Tips for beginners & advanced learners</li>
+        </ul>
+        <a href="{% url 'blog:post_list' %}" class="btn btn-lg text-white mt-3" style="background-color:#ffd700;">
+          Explore Blog
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

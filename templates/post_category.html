@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+<!-- <p><strong>Category:</strong>
+{% if post.category %}
+{{ post.category.name}}
+{% else %}
+No Category
+{% endif %}
+</p> -->
+<h2>Posts in {{ category.name }} </h2>
+<ul>
+    {% for post in posts %}
+    <li>
+        <a href="{% url 'blog:post_detail' post.pk %}">{{post.title}}</a>
+        <small>({{ post.published_date | date:"M d, Y"}})</small>
+    </li>
+    {% empty %}
+    <li>No posts in this category yet.</li>
+    {% endfor %}
+</ul>
+{% endblock %}

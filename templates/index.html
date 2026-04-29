@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+<section id="about" class="py-5 bg-light">
+  <div class="container">
+    <div class="row align-items-center">
+       <div class="col-md-7">
+{% if latest_question_list %}
+       <h2 style="color: #ffd700;" class="fw-bold mb-3">Feedback</h2>
+   <ul>
+    {% for question in latest_question_list %}
+       <p><legend><a style="text-decoration: none; color:black" href="{% url 'polls:detail' question.id %}">{{question.question_text }}</a></legend></p>
+       </li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p> No polls are available.</p>
+{% endif %}
+</div>
+    </div>
+  </div></section>
+{% endblock %}

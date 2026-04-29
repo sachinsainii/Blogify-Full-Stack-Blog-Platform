@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Welcome</h2>
+<br>
+<div>
+    <h3>Login with username</h3>
+    <a href="{% url 'api:login'%}">
+        <button type="submit">Login</button>
+    </a>
+</div>
+<div>
+    <h2>Create a new account</h2>
+    <a href="{% url 'api:signup' %}">
+        <button type="button">Sign Up</button>
+    </a>
+</div>
+{% endblock %}

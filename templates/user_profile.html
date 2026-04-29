@@ -1,0 +1,116 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<style>
+   /* The Modal (background) */
+/* .modal {
+  display: block;
+  margin: auto;
+  max-width: 50%;
+  max-height: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding-top: 10px;
+} */
+
+.modal {
+  display: none; 
+  position: fixed; 
+
+  left: 50px;
+  right: 50px;
+  top: 50px;
+  width:fit-content ;
+  height: fit-content;
+  max-width: 90vw; 
+  max-height: 90vh;  
+  border-radius: 10px;
+  transform:none;
+
+}
+
+/* Modal Content (Image) */
+.modal-content {
+  margin: auto;
+  display: block;
+  max-width: 50%;
+  max-height: 70%;
+}
+
+/* Close Button */
+.close {
+  position: absolute;
+  top: 50px;
+  right: 45px;
+  color: #fff;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.close:hover {
+  color: #bbb;
+}
+
+</style>
+
+<h2>{{ profile_user.username }}'s Profile</h2>
+<hr>
+<p>Profile-Picture:</p>
+{% if profile_user.profile_picture %}
+   <img src="{{ profile_user.profile_picture.url }}" alt="Profile_picture" id="profilePic"
+   style= "width:150px; height:150px; border-radius:50%; object-fit:cover;" >
+
+   <div  id="imgModal" class="modal">
+   <span class="close">&times;</span>
+   <img class="modal-content" id="imgZoom">
+</div>
+
+{% else %}
+   <!-- <p> No Profile picture uploaded.</p> -->
+     <img src="{% static 'images/default_image.png' %}" alt="Default profile"
+         style="width:150px; height:150px; border-radius:50%; object-fit:cover;">
+{% endif %}
+
+
+
+<br><br>
+<p>Username: {{ profile_user.username }}</p>
+<p>Email: {{ profile_user.email }}</p>
+<p>First Name: {{profile_user.first_name}}</p>
+<p>Last Name: {{profile_user.last_name}}</p>
+<p>Date-Of-Birth: {{profile_user.birth_date}}</p>
+<p>Location: {{profile_user.location}}</p>
+<br>
+<!-- <a href="{%url 'api:profile_edit'%}">Edit Profile</a> -->
+
+
+<script>
+  // Get modal
+  var modal = document.getElementById("imgModal");
+
+  // Get image and insert into modal
+  var img = document.getElementById("profilePic");
+  var modalImg = document.getElementById("imgZoom");
+  var span = document.getElementsByClassName("close")[0];
+
+  img.onclick = function(){
+    modal.style.display = "block";
+    modalImg.src = this.src;
+  }
+
+  // Close modal on click X
+  span.onclick = function() {
+    modal.style.display = "none";
+  }
+
+  // Close modal on click outside image
+  modal.onclick = function(e) {
+    if (e.target === modal) {
+      modal.style.display = "none";
+    }
+  }
+</script>
+{% endblock %}

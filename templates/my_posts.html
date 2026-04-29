@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<h2 style="color: #ffd700; text-align:center;">{{ user.username }}'s Posts</h2><hr>
+{% if posts %}
+<ul>
+    {% for post in posts %}
+    <nav>
+        
+        <a href="{% url 'blog:post_detail' post.pk %}">
+        {% if post.image %}
+        <img src="{{post.image.url}}"  style="width: 400px; height: 400px;">
+        {% else %}
+                <img style="width: 400px; height: 400px;" src="{% static 'images/default_pic.png' %}" class="card-img-top" alt="Default Image">
+        {% endif %}</a><br><br>
+        <h2><a style="color: black;" href="{% url 'blog:post_detail' post.pk %}">{{ post.title}}</a><br></h2>
+        
+        <a style="text-decoration: none; color: black;" href="{% url 'blog:post_detail' post.pk %}">
+        <p>{{ post.text|truncatewords:100 }}</p>
+        </a>
+
+        <small>By {{post.author}} On ({{ post.published_date}})</small><br><br>
+       
+        {% if post.category%}
+         <span class="badge bg-secondary">
+        {{post.category.name}}</span>
+        {% else %}
+        No Category
+        {% endif %}
+
+        {% for tag in post.tags.all %}
+         <span class="badge bg-info text-dark">#
+        {{tag.name}}</span>
+        {% empty %}
+        No tags
+        {% endfor %}</p>
+    </nav><br><hr>
+    {% endfor %}
+</ul>
+{% else %}
+<p>You haven't posted anything yet.</p>
+{% endif %}
+{% endblock %}
